@@ -1,0 +1,136 @@
+.note-form-card {
+  max-width: 700px;
+  margin: 2em auto 2em auto;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 2em 2em 1.5em 2em;
+  box-shadow: 0 2px 10px 0 rgba(60,72,88,0.08);
+  border: 1.5px solid #edeef2;
+}
+
+.note-form-card h2 {
+  margin-bottom: 1.2em;
+  color: var(--primary);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+input[type="text"], textarea {
+  padding: 0.75em 1.1em;
+  border: 1.2px solid var(--border);
+  border-radius: 7px;
+  background: #f7fafc;
+  font-size: 1rem;
+  transition: border 0.15s;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.error-txt {
+  font-size: 0.91em;
+  color: #e74c3c;
+}
+
+.tag-row {
+  gap: 0.7em;
+}
+
+.tag-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag-chips button {
+  background: #ececec;
+  color: var(--secondary);
+  border: none;
+  border-radius: 14px;
+  font-size: 0.97em;
+  padding: 0.25em 0.95em;
+  cursor: pointer;
+  transition: background 0.14s, color 0.15s;
+  margin-bottom: 0.2em;
+}
+.tag-chips button.selected, .tag-chips button:hover {
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 600;
+}
+.add-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 0.3em;
+}
+.add-tag-row input[type="text"] {
+  flex: 1 1 100px;
+  padding-right: 0.5em;
+}
+.add-tag-row button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 0.3em 1em;
+  font-size: 0.96em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.add-tag-row button:hover { background: var(--accent); color: var(--primary);}
+.form-actions {
+  display: flex;
+  gap: 1.4em;
+  margin-top: 0.8em;
+}
+.save-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 0.72em 2.2em;
+  font-weight: 600;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.save-btn:hover,
+.save-btn:focus {
+  background: var(--accent);
+  color: var(--primary);
+}
+.cancel-btn {
+  background: none;
+  color: #888;
+  border: 1.2px solid #bbb;
+  border-radius: 22px;
+  padding: 0.7em 1.6em;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.loading, .error {
+  padding: 1.2em;
+  color: var(--secondary);
+  background: #fffbe0;
+  margin-top: 1.2em;
+  border-radius: 8px;
+  font-size: 1.08em;
+}

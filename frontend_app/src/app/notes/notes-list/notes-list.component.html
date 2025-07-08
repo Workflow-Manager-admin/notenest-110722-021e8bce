@@ -1,0 +1,40 @@
+<div class="notes-list-header">
+  <input
+    class="search-input"
+    type="text"
+    [(ngModel)]="search"
+    (keyup)="onSearchKeyup($event)"
+    placeholder="Search notes by title..."
+  />
+  <button (click)="goToCreate()" class="create-btn">
+    <span class="material-symbols">add</span> New Note
+  </button>
+</div>
+
+<div class="tag-filter" *ngIf="tags.length > 0">
+  <span class="filter-label">Filter by Tag:</span>
+  <button *ngFor="let tag of tags" (click)="onTagSelected(tag.name)"
+    [class.selected]="selectedTag === tag.name">{{ tag.name }}</button>
+  <button *ngIf="selectedTag" (click)="clearTag()" class="clear-filter">Clear</button>
+</div>
+
+<div *ngIf="isLoading" class="loading">Loading...</div>
+<div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+<div class="notes-cards">
+  <div
+    class="note-card"
+    *ngFor="let note of notes"
+    (click)="goToNote(note.id!)"
+  >
+    <h3>{{ note.title }}</h3>
+    <p class="note-snippet">{{ note.content | slice:0:120 }}<span *ngIf="note.content.length > 120">…</span></p>
+    <div class="tags">
+      <span *ngFor="let tag of note.tags" class="tag-chip">{{ tag }}</span>
+    </div>
+    <div class="updated-at">
+      <span>Last updated: {{ note.updated_at | date:'medium' }}</span>
+    </div>
+  </div>
+  <div *ngIf="notes.length === 0 && !isLoading" class="empty">No notes found.</div>
+</div>

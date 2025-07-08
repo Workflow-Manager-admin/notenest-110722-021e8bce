@@ -1,0 +1,43 @@
+.tags-section {
+  max-width: 630px;
+  margin: 2.2em auto 2em auto;
+  background: var(--surface);
+  border-radius: 9px;
+  box-shadow: 0 2px 10px 0 rgba(60,72,88,0.06);
+  padding: 2em 2em 1.7em 2em;
+  border: 1.5px solid #edeef2;
+}
+h2 {
+  margin-bottom: 1.4em;
+  color: var(--primary);
+}
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9em;
+}
+.tag-chip {
+  background: var(--accent);
+  color: var(--secondary);
+  border-radius: 14px;
+  padding: 0.22em 1.15em;
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.3em;
+  transition: box-shadow 0.11s;
+  box-shadow: 0 0.5px 1.2px #e2e3e4;
+}
+.tag-chip:hover {
+  box-shadow: 0 2px 10px var(--accent, #ffca28, 0.19);
+  filter: brightness(0.98);
+  color: var(--primary);
+}
+.empty, .loading, .error {
+  padding: 1.7em;
+  color: var(--secondary);
+  width: 100%;
+  margin-top: 1.3em;
+  background: #fffbe0;
+  border-radius: 10px;
+}

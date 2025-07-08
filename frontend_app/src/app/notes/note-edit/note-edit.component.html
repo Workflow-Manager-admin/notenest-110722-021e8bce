@@ -1,0 +1,47 @@
+<div class="note-form-card">
+  <h2>{{ isEdit ? 'Edit Note' : 'Create a New Note' }}</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <label for="note-title">Title</label>
+      <input id="note-title" type="text" formControlName="title" maxlength="120" placeholder="Note title..." />
+      <small *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched" class="error-txt">
+          Title is required.
+      </small>
+      <small *ngIf="form.get('title')?.hasError('maxLength')" class="error-txt">
+          Max length is 120.
+      </small>
+    </div>
+
+    <div class="form-row">
+      <label for="note-content">Content</label>
+      <textarea id="note-content" rows="8" formControlName="content" placeholder="Write your note…"></textarea>
+      <small *ngIf="form.get('content')?.hasError('required') && form.get('content')?.touched" class="error-txt">
+          Content is required.
+      </small>
+    </div>
+
+    <div class="form-row tag-row">
+      <label>Choose tags</label>
+      <div class="tag-chips">
+        <button
+          type="button"
+          *ngFor="let tag of tags"
+          (click)="toggleTag(tag.name)"
+          [class.selected]="hasTag(tag.name)"
+        >{{ tag.name }}</button>
+      </div>
+      <div class="add-tag-row">
+        <input type="text" [(ngModel)]="newTagName" placeholder="Add new tag..." name="tagInput"
+          (keyup.enter)="addTag()" />
+        <button type="button" (click)="addTag()">+ Add Tag</button>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="save-btn" type="submit" [disabled]="isLoading || !form.valid">{{ isEdit ? 'Save Changes' : 'Create Note' }}</button>
+      <button class="cancel-btn" type="button" (click)="router.navigate(['/'])">Cancel</button>
+    </div>
+    <div *ngIf="isLoading" class="loading">Saving…</div>
+    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+  </form>
+</div>

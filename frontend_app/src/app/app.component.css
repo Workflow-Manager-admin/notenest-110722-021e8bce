@@ -1,0 +1,139 @@
+:root {
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #ffca28;
+  --bg: #f8fafc;
+  --surface: #fff;
+  --border: #e0e0e0;
+  --text: #1c1c1c;
+  --text-secondary: #666;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background: var(--bg);
+}
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 200px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.02);
+}
+
+.sidebar-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 1rem;
+  gap: 1em;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-logo {
+  font-size: 2.2rem;
+}
+
+.app-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 20px;
+}
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: color 0.2s, border-left 0.2s, background 0.2s;
+}
+
+.sidebar-links a.active,
+.sidebar-links a:hover {
+  background: var(--accent);
+  color: var(--text);
+  border-left: 3px solid var(--primary);
+}
+
+.sidebar-links .material-symbols {
+  margin-right: 0.8em;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.sidebar-footer {
+  flex: 1 1 auto;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  background: var(--bg);
+  min-width: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 800px) {
+  .app-shell {
+    flex-direction: column;
+  }
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: 56px;
+    min-width: unset;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-header {
+    height: 100%;
+    padding: 0 1em;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    font-size: 1.1rem;
+  }
+  .sidebar-links {
+    flex-direction: row;
+    margin: 0;
+    gap: 0;
+  }
+  .sidebar-links a {
+    font-size: 1rem;
+    padding: 0.7em 1em;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+  .sidebar-links a.active,
+  .sidebar-links a:hover {
+    border-left: none;
+    border-bottom: 2px solid var(--primary);
+    background: var(--accent);
+  }
+}

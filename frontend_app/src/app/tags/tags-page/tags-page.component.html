@@ -1,0 +1,14 @@
+<section class="tags-section">
+  <h2>All Tags</h2>
+  <div class="tags-list">
+    <span
+      class="tag-chip"
+      *ngFor="let tag of tags"
+      (click)="showNotesWithTag(tag.name)"
+      >{{ tag.name }}</span
+    >
+    <div *ngIf="tags.length === 0 && !loading" class="empty">No tags yet.</div>
+    <div *ngIf="loading" class="loading">Loading tags…</div>
+    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+  </div>
+</section>

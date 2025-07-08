@@ -1,0 +1,17 @@
+<div *ngIf="isLoading" class="loading">Loading…</div>
+<div *ngIf="!isLoading && errorMsg" class="error">{{ errorMsg }}</div>
+<section *ngIf="note" class="note-detail">
+  <div class="toolbar">
+    <button (click)="goToEdit()" title="Edit" class="toolbar-btn edit"><span class="material-symbols">edit</span> Edit</button>
+    <button (click)="deleteNote()" title="Delete" class="toolbar-btn delete"><span class="material-symbols">delete</span> Delete</button>
+  </div>
+  <h2>{{ note.title }}</h2>
+  <div class="note-tags">
+    <span class="tag" *ngFor="let t of note.tags">{{ t }}</span>
+  </div>
+  <div class="content">{{ note.content }}</div>
+  <div class="meta">
+    Created: {{ note.created_at | date:'medium' }}<br>
+    Last updated: {{ note.updated_at | date:'medium' }}
+  </div>
+</section>
