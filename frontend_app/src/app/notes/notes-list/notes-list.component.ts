@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CommonModule, NgIf, NgForOf, SlicePipe, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Note } from '../../models/note.model';
@@ -24,14 +23,14 @@ export class NotesListComponent implements OnInit {
   isLoading = false;
   errorMsg = '';
 
-  constructor(public router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {}
   loadTags() {}
   loadNotes() {}
-  onSearchKeyup(event: KeyboardEvent) {}
-  onTagSelected(tag: string) {}
+  onSearchKeyup(event: KeyboardEvent) { void event; }
+  onTagSelected(tag: string) { void tag; }
   clearTag() {}
-  goToNote(noteId: string) {}
+  goToNote(noteId: string) { void noteId; }
   goToCreate() {}
 }

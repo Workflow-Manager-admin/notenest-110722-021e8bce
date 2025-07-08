@@ -17,5 +17,5 @@ export class TagsPageComponent {
   loading = false;
   errorMsg = '';
 
-  showNotesWithTag(tagName: string) {}
+  showNotesWithTag(tagName: string) { void tagName; }
 }

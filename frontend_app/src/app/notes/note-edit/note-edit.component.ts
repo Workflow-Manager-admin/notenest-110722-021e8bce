@@ -26,9 +26,18 @@ export class NoteEditComponent implements OnInit {
 
   constructor(public router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Minimal valid form initialization to prevent build errors.
+    this.form = new FormGroup({});
+  }
+
   onSubmit() {}
-  toggleTag(tag: string) {}
-  hasTag(tag: string): boolean { return false; }
+
+  toggleTag(tag: string) { void tag; }
+
+  hasTag(tag: string): boolean {
+    void tag;
+    return false;
+  }
   addTag() {}
 }

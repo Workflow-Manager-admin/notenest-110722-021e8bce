@@ -19,7 +19,7 @@ export class NoteDetailComponent implements OnInit {
   errorMsg = '';
 
   ngOnInit() {}
-  loadNote(noteId: string) {}
+  loadNote() {}
   goToEdit() {}
   deleteNote() {}
 }
